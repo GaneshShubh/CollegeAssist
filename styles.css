@@ -13,13 +13,13 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
+    text-align: center;
 }
 
 h1 {
     font-size: 36px;
     color: #333;
     margin-bottom: 20px;
-    text-align: center;
 }
 
 .container {
@@ -48,6 +48,15 @@ h1 {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    body {
+        justify-content: flex-start; /* Ensures content stays properly aligned */
+    }
+
+    h1 {
+        font-size: 28px;
+        margin-bottom: 15px;
+    }
+
     .button {
         width: 200px;
         font-size: 16px;
@@ -55,6 +64,11 @@ h1 {
 }
 
 @media (max-width: 480px) {
+    h1 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
     .button {
         width: 180px;
         font-size: 14px;
