@@ -14,11 +14,15 @@ body {
     height: 100vh;
     margin: 0;
     text-align: center;
+    background-image: url('Background.jpg'); /* Path to your image */
+    background-size: cover; /* Ensure the image covers the entire body */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent repeating */
 }
 
 h1 {
     font-size: 36px;
-    color: #333;
+    color: white;
     margin-bottom: 20px;
 }
 
@@ -34,7 +38,7 @@ h1 {
     margin: 10px 0;
     padding: 15px;
     width: 250px;
-    background-color: #4CAF50;
+    background-color: red;
     color: white;
     font-size: 18px;
     text-decoration: none;
@@ -44,7 +48,7 @@ h1 {
 }
 
 .button:hover {
-    background-color: #45a049;
+    background-color: rgb(211, 15, 15, 0.5);
 }
 
 /* Responsive Design */
