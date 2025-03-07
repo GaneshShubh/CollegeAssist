@@ -3,15 +3,18 @@ body {
     margin: 0;
     font-family: 'Arial', sans-serif;
     background: linear-gradient(135deg, #74ebd5 0%, #ACB6E5 100%);
-    color: #333;
+    color: #fff;
+    text-align: center;
 }
 
+/* Container */
 .container {
     max-width: 800px;
     margin: 100px auto;
     text-align: center;
 }
 
+/* Heading */
 h1 {
     text-align: center;
     margin-top: 50px;
@@ -52,8 +55,9 @@ h1 {
     background: rgba(0, 0, 0, 0.6);
 }
 
+/* Modal Content */
 .modal-content {
-    background-color: #fefefe;
+    background-color: #333;
     margin: 10% auto;
     padding: 30px;
     border-radius: 10px;
@@ -61,22 +65,32 @@ h1 {
     max-width: 400px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
+    color: #fff;
 }
 
 .modal-content h2 {
     margin-bottom: 20px;
-    color: #333;
+    color: #fff;
 }
 
+/* Input Fields */
 .modal-content input[type="text"],
 .modal-content input[type="password"] {
     width: 100%;
     padding: 12px 20px;
     margin: 10px 0;
-    border: 1px solid #ccc;
+    border: 1px solid #fff;
     border-radius: 5px;
+    background: transparent;
+    color: #fff;
 }
 
+/* Input Placeholder */
+.modal-content input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Login Button */
 .modal-content button {
     width: 100%;
     padding: 12px;
@@ -94,8 +108,20 @@ h1 {
     background-color: #218838;
 }
 
+/* Error Message */
 .error {
     color: red;
     margin-top: 10px;
     font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .modal-content {
+        width: 95%;
+    }
+
+    .button {
+        width: 90%;
+    }
 }
