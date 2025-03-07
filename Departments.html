@@ -1,18 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Institute Information</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Departments - Institute Information</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <a href="https://huggingface.co/spaces/GaneshN523/Cse_Department" class="button">CSE Department</a>
-        <a href="https://huggingface.co/spaces/GaneshN523/ETC_Department" class="button">ETC Department</a>
-        <a href="https://huggingface.co/spaces/GaneshN523/Civil_Department" class="button">Civil Department</a>
-        <a href="https://huggingface.co/spaces/GaneshN523/Mechanical_Department" class="button">Mechanical Department</a>
-        <a href="https://huggingface.co/spaces/GaneshN523/Chemical_Department" class="button">Chemical Department</a>
+  <!-- Login Modal -->
+  <div id="login-modal" class="modal">
+    <div class="modal-content">
+      <h2>Login</h2>
+      <input type="text" id="username" placeholder="Username">
+      <input type="password" id="password" placeholder="Password">
+      <button id="login-btn" class="button">Login</button>
+      <p id="login-error" class="error"></p>
     </div>
+  </div>
+
+  <!-- Two-Step Verification Modal -->
+  <div id="twofa-modal" class="modal">
+    <div class="modal-content">
+      <h2>Two-Step Verification</h2>
+      <p>Enter the authentication code:</p>
+      <input type="text" id="twofa-code" placeholder="Authentication Code">
+      <button id="twofa-btn" class="button">Verify</button>
+      <p id="twofa-error" class="error"></p>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div id="main-content" class="container" style="display:none;">
+    <a href="https://huggingface.co/spaces/GaneshN523/Cse_Department" class="button">CSE Department</a>
+    <a href="https://huggingface.co/spaces/GaneshN523/ETC_Department" class="button">ETC Department</a>
+    <a href="https://huggingface.co/spaces/GaneshN523/Civil_Department" class="button">Civil Department</a>
+    <a href="https://huggingface.co/spaces/GaneshN523/Mechanical_Department" class="button">Mechanical Department</a>
+    <a href="https://huggingface.co/spaces/GaneshN523/Chemical_Department" class="button">Chemical Department</a>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if(sessionStorage.getItem('authenticated') === 'true') {
+        showMainContent();
+      } else {
+        showLoginModal();
+      }
+
+      function showLoginModal() {
+        document.getElementById('login-modal').style.display = 'block';
+        document.getElementById('twofa-modal').style.display = 'none';
+        document.getElementById('main-content').style.display = 'none';
+      }
+
+      function showMainContent() {
+        document.getElementById('login-modal').style.display = 'none';
+        document.getElementById('twofa-modal').style.display = 'none';
+        document.getElementById('main-content').style.display = 'block';
+      }
+
+      // Handle Login
+      document.getElementById('login-btn').addEventListener('click', function() {
+        var username = document.getElementById('username').value;
+        var password = document.getElementById('password').value;
+        if(username === 'new' && password === 'pass') {
+          document.getElementById('login-error').textContent = '';
+          document.getElementById('login-modal').style.display = 'none';
+          document.getElementById('twofa-modal').style.display = 'block';
+        } else {
+          document.getElementById('login-error').textContent = 'Invalid username or password.';
+        }
+      });
+
+      // Handle Two-Factor Authentication
+      document.getElementById('twofa-btn').addEventListener('click', function() {
+        var code = document.getElementById('twofa-code').value;
+        if(code === '1234') {
+          document.getElementById('twofa-error').textContent = '';
+          sessionStorage.setItem('authenticated', 'true');
+          showMainContent();
+        } else {
+          document.getElementById('twofa-error').textContent = 'Invalid authentication code.';
+        }
+      });
+    });
+  </script>
 </body>
 </html>
