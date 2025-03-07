@@ -22,7 +22,8 @@
   <div id="twofa-modal" class="modal">
     <div class="modal-content">
       <h2>Two-Step Verification</h2>
-      <p>Enter the authentication code:</p>
+      <p>Your verification code is: <strong>12345</strong></p>
+      <p>Enter the verification code:</p>
       <input type="text" id="twofa-code" placeholder="Authentication Code">
       <button id="twofa-btn" class="button">Verify</button>
       <p id="twofa-error" class="error"></p>
@@ -71,15 +72,15 @@
         }
       });
 
-      // Handle Two-Factor Authentication
+      // Handle Two-Factor Verification
       document.getElementById('twofa-btn').addEventListener('click', function() {
         var code = document.getElementById('twofa-code').value;
-        if(code === '1234') {
+        if(code === '12345') {
           document.getElementById('twofa-error').textContent = '';
           sessionStorage.setItem('authenticated', 'true');
           showMainContent();
         } else {
-          document.getElementById('twofa-error').textContent = 'Invalid authentication code.';
+          document.getElementById('twofa-error').textContent = 'Invalid verification code.';
         }
       });
     });
