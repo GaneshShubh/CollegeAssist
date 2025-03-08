@@ -70,7 +70,7 @@ h1 {
 
 .modal-content input[type="text"],
 .modal-content input[type="password"] {
-    width: 100%;
+    width: 80%;
     padding: 12px 20px;
     margin: 10px 0;
     border: 1px solid #ccc;
